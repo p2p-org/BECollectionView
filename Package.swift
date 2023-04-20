@@ -12,36 +12,17 @@ let package = Package(
             targets: ["BECollectionView_Core"]
         ),
         .library(
-            name: "BECollectionView",
-            targets: ["BECollectionView"]
-        ),
-        .library(
             name: "BECollectionView_Combine",
             targets: ["BECollectionView_Combine"]
         ),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.5.0"),
         .package(url: "https://github.com/CombineCommunity/CombineCocoa.git", from: "0.4.0")
     ],
     targets: [
         .target(
             name: "BECollectionView_Core"
         ),
-        // BECollectionView+RxSwift
-        .target(
-            name: "BECollectionView",
-            dependencies: [
-                "BECollectionView_Core",
-                "RxSwift",
-                .product(name: "RxCocoa", package: "RxSwift")
-            ]),
-        .testTarget(
-            name: "BECollectionViewTests",
-            dependencies: ["BECollectionView"]
-        ),
-        // BECollectionView+Combine
         .target(
             name: "BECollectionView_Combine",
             dependencies: [
